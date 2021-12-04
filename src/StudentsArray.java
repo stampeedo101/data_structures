@@ -16,9 +16,10 @@ public class StudentsArray {
     V addElementEnd()
 
     V getElementByPosition()
-     getPositionByElement()
+    V getPositionByElement()
 
-    deleteElement()
+    deleteElementByPosition()
+    deleteElementByElement()
     deleteBegin()
     deleteEnd()
 
@@ -41,10 +42,8 @@ public class StudentsArray {
                 return i;
             }
         }
-        System.out.printf("\nStudent not found");
         return -1;
     }
-
 
     public void addElement(Student student){
         for(int i = elementNumber ; i < this.students.length;i++){
@@ -56,8 +55,6 @@ public class StudentsArray {
         }
     }
 
-
-
     public void addElementPosition(Student student, int position){
         if(position > elementNumber + 1){
 
@@ -68,6 +65,7 @@ public class StudentsArray {
             if(position == (elementNumber+1) ){//tested
 
                 this.students[position] = student;
+                elementNumber++;
 
             }else if(students[position] != null){
 
@@ -103,6 +101,7 @@ public class StudentsArray {
 //                    }
 
                     students[position] = student;
+                    elementNumber++;
 
                     for(int i = position + 1, j = 0; i < (elementNumber+1); i++ , j++){
                         students[i] = relocationArray[j];
@@ -117,7 +116,6 @@ public class StudentsArray {
         }
     }
 
-
     public void addElementBegin(Student student){
 
         this.addElementPosition(student,0);
@@ -130,13 +128,78 @@ public class StudentsArray {
 
     }
 
+    public void deleteElementByPosition(int position){
+        if(position>elementNumber){
+
+            System.out.printf("\nposition too high");
+
+        }else if(students[position] != null){
+            if(position == elementNumber){
+                students[position] = null;
+                elementNumber--;
+
+            }else {
+
+                Student[] relocation = new Student[elementNumber-position];
+
+                for (int i =position+1,j=0;i<elementNumber+1;i++,j++){
+                    relocation[j] = students[i];
+                }
+
+                for (int i = position, j = 0; j<relocation.length; i++,j++){
+                    students[i] = relocation[j];
+                }
+                students[elementNumber] = null;
+                elementNumber--;
+            }
+
+        }else {
+            System.out.printf("\nthere is no such element");
+        }
+
+    }
+
+    public void deleteBegin(){
+       if(students[0] != null){
+
+           System.out.printf("elementnumber " + elementNumber);
+
+           Student[] relocation = new Student[students.length-1];
+
+           for (int i =1,j=0;i< students.length-1;i++,j++){
+                   relocation[j] = students[i];
+               }
+
+           for (int i = 0, j = 0; j<relocation.length; i++,j++){
+               students[i] = relocation[j];
+           }
+           elementNumber--;
+       }else{
+           System.out.printf("\nthere is no element [0]");
+       }
+    }
+
+    public void deleteEnd(){
+
+        if(students[elementNumber] != null){
+
+            students[elementNumber] = null;
+            elementNumber--;
+
+        }else{
+            System.out.printf("\nthere is no element [0]");
+        }
+    }
+
+
+
     @Override
     public String toString() {
         String out = "\n\t\t\t\t\t\tStudent Array\n\n";
         for(int i = 0;i<students.length;i++){
             if(students[i] != null){
 
-                out = out + students[i].toString() + "\n";
+                out = out + i + "\t" + students[i].toString() + "\n";
 
             }else break;
         }

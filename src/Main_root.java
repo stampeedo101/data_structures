@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Main_root {
     public static void main(String[] args) {
@@ -29,7 +30,10 @@ public class Main_root {
         Student elizabeth = new Student("Elizabeth",19,1.6);
         studentsArray.addElementEnd(elizabeth);
 
-        System.out.printf("" + studentsArray.toString());
+        System.out.printf("" + studentsArray);
+
+        System.out.println();
+        System.out.println();
 
         try{
             System.out.printf("\n\n\n search: position(1)" + studentsArray.getStudentByPosition(9).getName());
@@ -40,12 +44,31 @@ public class Main_root {
         Student josephine = new Student("Josephine", 19, 1.73);
 
         try{
-            System.out.printf("\n\n\nsearch: \nstudent(" + charlotte.getName() + ") position = " + studentsArray.getPositionByStudent(charlotte));
-            System.out.printf("\n\n\nsearch: \nstudent(" + josephine.getName() + ") position = " + studentsArray.getPositionByStudent(josephine));
+            System.out.printf((studentsArray.getPositionByStudent(charlotte) != -1)?
+                    "\n\n\nsearch: \nstudent(" + charlotte.getName() + ") position = " + studentsArray.getPositionByStudent(charlotte):
+                    "\n\n\nStudent not found"
+                    );
+            System.out.printf((studentsArray.getPositionByStudent(josephine) != -1)?
+                    "\n\n\nsearch: \nstudent(" + josephine.getName() + ") position = " + studentsArray.getPositionByStudent(josephine):
+                    "\n\n\nStudent not found"
+            );
         }catch (Exception e){
             System.out.printf("\ntry another position");
         }
 
+        //test deleteElementByPosition()
+        System.out.printf("" + studentsArray);
+        studentsArray.deleteElementByPosition(7);
+        System.out.printf("" + studentsArray);
 
+        //test deleteElementBegin()
+        System.out.printf("" + studentsArray);
+        studentsArray.deleteBegin();
+        System.out.printf("" + studentsArray);
+
+        //test deleteElementEnd()
+        System.out.printf("" + studentsArray);
+        studentsArray.deleteEnd();
+        System.out.printf("" + studentsArray);
     }
 }
