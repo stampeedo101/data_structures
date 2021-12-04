@@ -4,6 +4,10 @@ public class Student {
     private int age;
     private double height;
 
+    public Student(){
+
+    }
+
     public Student(String name, int age, double height) {
         this.name = name;
         this.age = age;

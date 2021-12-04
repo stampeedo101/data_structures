@@ -19,9 +19,13 @@ public class StudentsArray {
     V getPositionByElement()
 
     V deleteElementByPosition()
-    deleteElementByElement()
+    V deleteElementByElement()
     V deleteBegin()
     V deleteEnd()
+
+    sortNames()
+    sortAges()
+    sortHeights()
 
     getLentgh()
 
@@ -211,6 +215,35 @@ public class StudentsArray {
     }
 
 
+    public Student[] sortNames(){
+
+
+        System.out.printf("\n\nelement " + elementNumber);
+
+        for(int i = 0;i<elementNumber;i++){
+
+            for (int j = 0;j<elementNumber;j++){
+                System.out.printf("\n" + students[i].getName() + " = " +
+                        Character.getNumericValue(students[i].getName().charAt(0)) + " " +
+                        students[j].getName() + "  = " +
+                        Character.getNumericValue(students[j].getName().charAt(0))
+                );
+
+                if(Character.getNumericValue(students[i].getName().charAt(0)) >
+                        Character.getNumericValue(students[j].getName().charAt(0)) ){
+                    Student joker;
+                    joker = students[i];
+                    students[i] = students[i+1];
+                    students[i+1] = joker;
+
+                }else{
+                    System.out.printf("\nno modification");
+                }
+            }
+
+        }
+        return students;
+    }
 
     @Override
     public String toString() {

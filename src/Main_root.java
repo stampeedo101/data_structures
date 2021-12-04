@@ -35,13 +35,14 @@ public class Main_root {
         System.out.println();
         System.out.println();
 
+        Student josephine = new Student("Josephine", 19, 1.73);
+        /*
+
         try{
             System.out.printf("\n\n\n search: position(1)" + studentsArray.getStudentByPosition(9).getName());
         }catch (Exception e){
             System.out.printf("\ntry another position");
         }
-
-        Student josephine = new Student("Josephine", 19, 1.73);
 
         try{
             System.out.printf((studentsArray.getPositionByStudent(charlotte) != -1)?
@@ -74,6 +75,12 @@ public class Main_root {
         //test deleteElementByStudent
         System.out.printf("" + studentsArray);
         studentsArray.deleteByStudent(dominique);
+        System.out.printf("" + studentsArray);
+
+        */
+
+        studentsArray.sortNames();
+
         System.out.printf("" + studentsArray);
 
     }
