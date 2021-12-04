@@ -36,14 +36,36 @@ public class Student {
 
     @Override
     public String toString() {
-        return "(name : " +
-                this.getName() +
-                ") \t\t\t(age: " +
-                this.getAge() +
-                ") \t\t\t(height: " +
-                this.getHeight() +
-                ")"
-        ;
+        if(this.getName().length() < 6){
+            return "(name : " +
+                    this.getName() +
+                    ") \t\t\t\t\t(age: " +
+                    this.getAge() +
+                    ") \t\t\t(height: " +
+                    this.getHeight() +
+                    ")"
+                    ;
+        }
+        if(this.getName().length() < 10){
+            return "(name : " +
+                    this.getName() +
+                    ") \t\t\t\t(age: " +
+                    this.getAge() +
+                    ") \t\t\t(height: " +
+                    this.getHeight() +
+                    ")"
+                    ;
+        }else {
 
+            return "(name : " +
+                    this.getName() +
+                    ") \t\t\t(age: " +
+                    this.getAge() +
+                    ") \t\t\t(height: " +
+                    this.getHeight() +
+                    ")"
+                    ;
+
+        }
     }
 }

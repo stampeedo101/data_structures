@@ -27,8 +27,24 @@ public class StudentsArray {
      */
 
     public Student getStudentByPosition(int position){
-        return students[position];
+        if(students[position] != null){
+            return students[position];
+        }else{
+            System.out.printf("Student not found");
+            return null;
+        }
     }
+
+    public int getPositionByStudent(Student student){
+        for(int i =0;i<elementNumber;i++){
+            if(students[i].equals(student)){
+                return i;
+            }
+        }
+        System.out.printf("\nStudent not found");
+        return -1;
+    }
+
 
     public void addElement(Student student){
         for(int i = elementNumber ; i < this.students.length;i++){
@@ -39,6 +55,8 @@ public class StudentsArray {
             }
         }
     }
+
+
 
     public void addElementPosition(Student student, int position){
         if(position > elementNumber + 1){
@@ -74,15 +92,15 @@ public class StudentsArray {
 
 
                     //print relocation
-                    for(int i = 0; i < relocationArray.length; i++){
-
-                        if(relocationArray[i].getName() != null){
-
-//                            System.out.print("\nrealocation: " + relocationArray[i].getName());
-
-                        }
-
-                    }
+//                    for(int i = 0; i < relocationArray.length; i++){
+//
+//                        if(relocationArray[i].getName() != null){
+//
+////                            System.out.print("\nrealocation: " + relocationArray[i].getName());
+//
+//                        }
+//
+//                    }
 
                     students[position] = student;
 
@@ -117,7 +135,9 @@ public class StudentsArray {
         String out = "\n\t\t\t\t\t\tStudent Array\n\n";
         for(int i = 0;i<students.length;i++){
             if(students[i] != null){
+
                 out = out + students[i].toString() + "\n";
+
             }else break;
         }
         return out;

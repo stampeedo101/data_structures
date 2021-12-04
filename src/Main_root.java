@@ -31,5 +31,21 @@ public class Main_root {
 
         System.out.printf("" + studentsArray.toString());
 
+        try{
+            System.out.printf("\n\n\n search: position(1)" + studentsArray.getStudentByPosition(9).getName());
+        }catch (Exception e){
+            System.out.printf("\ntry another position");
+        }
+
+        Student josephine = new Student("Josephine", 19, 1.73);
+
+        try{
+            System.out.printf("\n\n\nsearch: \nstudent(" + charlotte.getName() + ") position = " + studentsArray.getPositionByStudent(charlotte));
+            System.out.printf("\n\n\nsearch: \nstudent(" + josephine.getName() + ") position = " + studentsArray.getPositionByStudent(josephine));
+        }catch (Exception e){
+            System.out.printf("\ntry another position");
+        }
+
+
     }
 }
