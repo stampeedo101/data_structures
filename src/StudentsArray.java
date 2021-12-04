@@ -10,12 +10,13 @@ public class StudentsArray {
     /*
     METHODS TO IMPLEMENT
 
-    addElement()
-    addElementPosition()
-    addElementBegin()
-    addElementEnd()
+    V addElement()
+    V addElementPosition()
+    V addElementBegin()
+    V addElementEnd()
 
-    getElement()
+    V getElementByPosition()
+     getPositionByElement()
 
     deleteElement()
     deleteBegin()
@@ -25,7 +26,7 @@ public class StudentsArray {
 
      */
 
-    public Student getStudent(int position){
+    public Student getStudentByPosition(int position){
         return students[position];
     }
 
@@ -53,11 +54,11 @@ public class StudentsArray {
             }else if(students[position] != null){
 
                 Student[] relocationArray = new Student[elementNumber+1-position];
-                System.out.print("\nlength " + relocationArray.length);
+//                System.out.print("\nlength " + relocationArray.length);
 
                 if(elementNumber != 0){
 
-                    System.out.printf("\nelementNumber " + elementNumber + "\nposition " + position);
+//                    System.out.printf("\nelementNumber " + elementNumber + "\nposition " + position);
 
                     //copy elements for relocation
                     for(int i = position, j = 0; i < (elementNumber+1); i++ , j++){
@@ -77,7 +78,7 @@ public class StudentsArray {
 
                         if(relocationArray[i].getName() != null){
 
-                            System.out.print("\nrealocation: " + relocationArray[i].getName());
+//                            System.out.print("\nrealocation: " + relocationArray[i].getName());
 
                         }
 
@@ -96,26 +97,24 @@ public class StudentsArray {
             }
 
         }
-        /*
-        1 2 3 4
-        criar array com length - position
-
-
-         */
     }
 
 
-    public void addElementBegin(){
+    public void addElementBegin(Student student){
+
+        this.addElementPosition(student,0);
 
     }
 
-    public void addElementEnd(){
+    public void addElementEnd(Student student){
+
+        this.addElementPosition(student,elementNumber+1);
 
     }
 
     @Override
     public String toString() {
-        String out = "\nStudent Array\n";
+        String out = "\n\t\t\t\t\t\tStudent Array\n\n";
         for(int i = 0;i<students.length;i++){
             if(students[i] != null){
                 out = out + students[i].toString() + "\n";

@@ -9,7 +9,6 @@ public class Main_root {
         Student catherine = new Student("Catherine", 20,1.9);
         Student dominique = new Student("Dominique", 22,1.7);
 
-        Student ronald = new Student("Ronald",19,1.6);
 
         StudentsArray studentsArray = new StudentsArray();
 
@@ -20,7 +19,15 @@ public class Main_root {
         studentsArray.addElement(dominique);
 
 
-        studentsArray.addElementPosition(ronald,2);
+        Student ronald = new Student("Ronald",19,1.6);
+        studentsArray.addElementPosition(ronald,3);
+
+
+        Student charlotte = new Student("Charlotte",21,1.7);
+        studentsArray.addElementBegin(charlotte);
+
+        Student elizabeth = new Student("Elizabeth",19,1.6);
+        studentsArray.addElementEnd(elizabeth);
 
         System.out.printf("" + studentsArray.toString());
 
