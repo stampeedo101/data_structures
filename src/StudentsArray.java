@@ -18,10 +18,10 @@ public class StudentsArray {
     V getElementByPosition()
     V getPositionByElement()
 
-    deleteElementByPosition()
+    V deleteElementByPosition()
     deleteElementByElement()
-    deleteBegin()
-    deleteEnd()
+    V deleteBegin()
+    V deleteEnd()
 
     getLentgh()
 
@@ -37,11 +37,13 @@ public class StudentsArray {
     }
 
     public int getPositionByStudent(Student student){
-        for(int i =0;i<elementNumber;i++){
+
+        for(int i =0;i<elementNumber+1;i++){
             if(students[i].equals(student)){
                 return i;
             }
         }
+
         return -1;
     }
 
@@ -135,6 +137,8 @@ public class StudentsArray {
 
         }else if(students[position] != null){
             if(position == elementNumber){
+
+                System.out.printf("\n" + students[position].getName() + " gone\n");
                 students[position] = null;
                 elementNumber--;
 
@@ -149,6 +153,8 @@ public class StudentsArray {
                 for (int i = position, j = 0; j<relocation.length; i++,j++){
                     students[i] = relocation[j];
                 }
+
+                System.out.printf("\n" + students[position].getName() + " gone\n");
                 students[elementNumber] = null;
                 elementNumber--;
             }
@@ -162,7 +168,7 @@ public class StudentsArray {
     public void deleteBegin(){
        if(students[0] != null){
 
-           System.out.printf("elementnumber " + elementNumber);
+           System.out.printf("\n" + students[0].getName() + " gone\n");
 
            Student[] relocation = new Student[students.length-1];
 
@@ -173,6 +179,7 @@ public class StudentsArray {
            for (int i = 0, j = 0; j<relocation.length; i++,j++){
                students[i] = relocation[j];
            }
+
            elementNumber--;
        }else{
            System.out.printf("\nthere is no element [0]");
@@ -183,11 +190,23 @@ public class StudentsArray {
 
         if(students[elementNumber] != null){
 
+            System.out.printf("\n" + students[elementNumber].getName() + " gone\n");
             students[elementNumber] = null;
             elementNumber--;
 
         }else{
             System.out.printf("\nthere is no element [0]");
+        }
+    }
+
+    public void deleteByStudent(Student student){
+
+        if(this.getPositionByStudent(student) != -1){
+
+            deleteElementByPosition(this.getPositionByStudent(student));
+
+        }else {
+            System.out.printf("\nthere is no student to delete");
         }
     }
 

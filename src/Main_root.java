@@ -70,5 +70,11 @@ public class Main_root {
         System.out.printf("" + studentsArray);
         studentsArray.deleteEnd();
         System.out.printf("" + studentsArray);
+
+        //test deleteElementByStudent
+        System.out.printf("" + studentsArray);
+        studentsArray.deleteByStudent(dominique);
+        System.out.printf("" + studentsArray);
+
     }
 }
