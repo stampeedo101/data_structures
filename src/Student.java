@@ -38,9 +38,9 @@ public class Student {
     public String toString() {
         return "(name : " +
                 this.getName() +
-                ") \t(age: " +
+                ") \t\t\t(age: " +
                 this.getAge() +
-                ") \t(height: " +
+                ") \t\t\t(height: " +
                 this.getHeight() +
                 ")"
         ;

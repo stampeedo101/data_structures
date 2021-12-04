@@ -40,29 +40,56 @@ public class StudentsArray {
     }
 
     public void addElementPosition(Student student, int position){
-        if(position>students.length){
+        if(position > elementNumber + 1){
 
-            System.out.printf("\nSorry position not allowed, too high.");
-
-        }else if(position > elementNumber +1){
-
-            System.out.printf("\nSorry position not allowed, too high.");
+            System.out.print("\nSorry position not allowed, too high.");
 
         }else{
 
-            if(position == (elementNumber+1) ){
+            if(position == (elementNumber+1) ){//tested
+
                 this.students[position] = student;
-            }
 
-            if(students[position] != null){
+            }else if(students[position] != null){
 
-                Student[] realocationArray = new Student[students.length-position];
+                Student[] relocationArray = new Student[elementNumber+1-position];
+                System.out.print("\nlength " + relocationArray.length);
 
                 if(elementNumber != 0){
 
-                    for(int i = 0; i<(elementNumber-position); i++){
-                        System.out.printf("\nvai saber: " + students[i].getName());
+                    System.out.printf("\nelementNumber " + elementNumber + "\nposition " + position);
+
+                    //copy elements for relocation
+                    for(int i = position, j = 0; i < (elementNumber+1); i++ , j++){
+
+                        if(students[i].getName() != null){
+
+                            relocationArray[j] = students[i];
+
+                        }else break;
+
+
                     }
+
+
+                    //print relocation
+                    for(int i = 0; i < relocationArray.length; i++){
+
+                        if(relocationArray[i].getName() != null){
+
+                            System.out.print("\nrealocation: " + relocationArray[i].getName());
+
+                        }
+
+                    }
+
+                    students[position] = student;
+
+                    for(int i = position + 1, j = 0; i < (elementNumber+1); i++ , j++){
+                        students[i] = relocationArray[j];
+                    }
+
+                    students[elementNumber+1] = relocationArray[relocationArray.length -1];
 
                 }
 
