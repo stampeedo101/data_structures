@@ -36,54 +36,6 @@ public class Main_root {
         System.out.println();
 
         Student josephine = new Student("Josephine", 19, 1.73);
-        /*
-
-        try{
-            System.out.printf("\n\n\n search: position(1)" + studentsArray.getStudentByPosition(9).getName());
-        }catch (Exception e){
-            System.out.printf("\ntry another position");
-        }
-
-        try{
-            System.out.printf((studentsArray.getPositionByStudent(charlotte) != -1)?
-                    "\n\n\nsearch: \nstudent(" + charlotte.getName() + ") position = " + studentsArray.getPositionByStudent(charlotte):
-                    "\n\n\nStudent not found"
-                    );
-            System.out.printf((studentsArray.getPositionByStudent(josephine) != -1)?
-                    "\n\n\nsearch: \nstudent(" + josephine.getName() + ") position = " + studentsArray.getPositionByStudent(josephine):
-                    "\n\n\nStudent not found"
-            );
-        }catch (Exception e){
-            System.out.printf("\ntry another position");
-        }
-
-        //test deleteElementByPosition()
-        System.out.printf("" + studentsArray);
-        studentsArray.deleteElementByPosition(7);
-        System.out.printf("" + studentsArray);
-
-        //test deleteElementBegin()
-        System.out.printf("" + studentsArray);
-        studentsArray.deleteBegin();
-        System.out.printf("" + studentsArray);
-
-        //test deleteElementEnd()
-        System.out.printf("" + studentsArray);
-        studentsArray.deleteEnd();
-        System.out.printf("" + studentsArray);
-
-        //test deleteElementByStudent
-        System.out.printf("" + studentsArray);
-        studentsArray.deleteByStudent(dominique);
-        System.out.printf("" + studentsArray);
-
-        */
-
-//        studentsArray.sortNames();
-//        studentsArray.sortByAge();
-        studentsArray.sortByHeight();
-
-        System.out.printf("" + studentsArray);
 
     }
 }

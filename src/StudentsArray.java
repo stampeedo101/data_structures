@@ -23,9 +23,9 @@ public class StudentsArray {
     V deleteBegin()
     V deleteEnd()
 
-    sortNames()
-    sortAges()
-    sortHeights()
+    V sortNames()
+    V sortAges()
+    V sortHeights()
 
     getLentgh()
 
