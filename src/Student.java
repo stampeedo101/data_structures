@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Student {
 
     private String name;
@@ -6,14 +9,14 @@ public class Student {
     private double height;
 
     public Student(){
-
+        this.id = generateId();
     }
 
-    public Student(String name, int id,int age, double height) {
+    public Student(String name, int age, double height) {
         this.name = name;
-        this.id = id;
         this.age = age;
         this.height = height;
+        this.id = generateId();
     }
 
     public String getName() {
@@ -46,6 +49,10 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    private int generateId(){
+        return ThreadLocalRandom.current().nextInt(0,1000);
     }
 
     @Override

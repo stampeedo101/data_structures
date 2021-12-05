@@ -4,11 +4,11 @@ public class Main_root {
     public static void main(String[] args) {
 //        System.out.printf("test");
 
-        Student mary = new Student("Mary", 1,21,1.8);
+        Student mary = new Student("Mary",21,1.8);
 
-        Student christopher = new Student("Christopher", 2,23,1.6);
-        Student catherine = new Student("Catherine",3, 20,1.9);
-        Student dominique = new Student("Dominique",4, 22,1.7);
+        Student christopher = new Student("Christopher",23,1.6);
+        Student catherine = new Student("Catherine", 20,1.9);
+        Student dominique = new Student("Dominique", 22,1.7);
 
 
         StudentsArray studentsArray = new StudentsArray();
@@ -20,14 +20,14 @@ public class Main_root {
         studentsArray.addElement(dominique);
 
 
-        Student ronald = new Student("Ronald",5,19,1.6);
+        Student ronald = new Student("Ronald",19,1.6);
         studentsArray.addElementPosition(ronald,3);
 
 
-        Student charlotte = new Student("Charlotte",6,21,1.7);
+        Student charlotte = new Student("Charlotte",21,1.7);
         studentsArray.addElementBegin(charlotte);
 
-        Student elizabeth = new Student("Elizabeth",7,19,1.6);
+        Student elizabeth = new Student("Elizabeth",19,1.6);
         studentsArray.addElementEnd(elizabeth);
 
         System.out.printf("" + studentsArray);
@@ -35,7 +35,7 @@ public class Main_root {
         System.out.println();
         System.out.println();
 
-        Student josephine = new Student("Josephine", 8, 19, 1.73);
+        Student josephine = new Student("Josephine", 19, 1.73);
         /*
 
         try{
@@ -79,7 +79,9 @@ public class Main_root {
 
         */
 
-        studentsArray.sortNames();
+//        studentsArray.sortNames();
+//        studentsArray.sortByAge();
+        studentsArray.sortByHeight();
 
         System.out.printf("" + studentsArray);
 

@@ -80,7 +80,6 @@ public class StudentsArray {
 
                 if(elementNumber != 0){
 
-//                    System.out.printf("\nelementNumber " + elementNumber + "\nposition " + position);
 
                     //copy elements for relocation
                     for(int i = position, j = 0; i < (elementNumber+1); i++ , j++){
@@ -95,16 +94,6 @@ public class StudentsArray {
                     }
 
 
-                    //print relocation
-//                    for(int i = 0; i < relocationArray.length; i++){
-//
-//                        if(relocationArray[i].getName() != null){
-//
-////                            System.out.print("\nrealocation: " + relocationArray[i].getName());
-//
-//                        }
-//
-//                    }
 
                     students[position] = student;
                     elementNumber++;
@@ -216,25 +205,78 @@ public class StudentsArray {
 
 
     public Student[] sortNames(){
+        int pos;
+        Student temporary;
 
-        for(int i =0;i<elementNumber;i++) {
-            int temp =i;
+        for(int i =0;i<elementNumber+1;i++) {
+            pos = i;
             for (int j = i + 1;j<elementNumber+1;j++){
 
-                if (Character.getNumericValue(students[temp].getName().charAt(0)) >
-                        Character.getNumericValue(students[j].getName().charAt(0))) {
-                    temp = j;
+                if (Character.getNumericValue(students[j].getName().charAt(0)) <
+                        Character.getNumericValue(students[pos].getName().charAt(0))) {
+                    pos = j;
+                }else if (Character.getNumericValue(students[j].getName().charAt(0)) ==
+                        Character.getNumericValue(students[pos].getName().charAt(0))) {
+
+                    if (Character.getNumericValue(students[j].getName().charAt(1)) <
+                            Character.getNumericValue(students[pos].getName().charAt(1))) {
+                        pos = j;
+                    }else if(Character.getNumericValue(students[j].getName().charAt(1)) ==
+                            Character.getNumericValue(students[pos].getName().charAt(1))){
+
+                        if (Character.getNumericValue(students[j].getName().charAt(2)) <
+                                Character.getNumericValue(students[pos].getName().charAt(2))) {
+                            pos = j;
+                        }
+                    }
                 }
-                Student reserve;
-                reserve = students[temp];
-                students[temp] = students[i];
-                students[i]= reserve;
+
 
             }
+            temporary = students[pos];
+            students[pos] = students[i];
+            students[i]= temporary;
 
         }
 
         return students;
+    }
+
+    public Student[] sortByAge(){
+        int pos;
+        Student  temp;
+
+        for (int i = 0;i<elementNumber+1;i++){
+            pos = i;
+            for (int j = i+1;j<elementNumber+1;j++){
+                if(students[j].getAge() < students[pos].getAge()){
+                    pos = j;
+                }
+            }
+            temp = students[pos];
+            students[pos] = students[i];
+            students[i] = temp;
+        }
+        return students;
+    }
+
+    public Student[] sortByHeight(){
+        int pos;
+        Student  temp;
+
+        for (int i = 0;i<elementNumber+1;i++){
+            pos = i;
+            for (int j = i+1;j<elementNumber+1;j++){
+                if( Double.compare(students[j].getHeight(),students[pos].getHeight()) < 0 ){
+                    pos = j;
+                }
+            }
+            temp = students[pos];
+            students[pos] = students[i];
+            students[i] = temp;
+        }
+        return students;
+
     }
 
     @Override
