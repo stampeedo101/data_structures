@@ -217,31 +217,23 @@ public class StudentsArray {
 
     public Student[] sortNames(){
 
+        for(int i =0;i<elementNumber;i++) {
+            int temp =i;
+            for (int j = i + 1;j<elementNumber+1;j++){
 
-        System.out.printf("\n\nelement " + elementNumber);
-
-        for(int i = 0;i<elementNumber;i++){
-
-            for (int j = 0;j<elementNumber;j++){
-                System.out.printf("\n" + students[i].getName() + " = " +
-                        Character.getNumericValue(students[i].getName().charAt(0)) + " " +
-                        students[j].getName() + "  = " +
-                        Character.getNumericValue(students[j].getName().charAt(0))
-                );
-
-                if(Character.getNumericValue(students[i].getName().charAt(0)) >
-                        Character.getNumericValue(students[j].getName().charAt(0)) ){
-                    Student joker;
-                    joker = students[i];
-                    students[i] = students[i+1];
-                    students[i+1] = joker;
-
-                }else{
-                    System.out.printf("\nno modification");
+                if (Character.getNumericValue(students[temp].getName().charAt(0)) >
+                        Character.getNumericValue(students[j].getName().charAt(0))) {
+                    temp = j;
                 }
+                Student reserve;
+                reserve = students[temp];
+                students[temp] = students[i];
+                students[i]= reserve;
+
             }
 
         }
+
         return students;
     }
 

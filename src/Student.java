@@ -1,6 +1,7 @@
 public class Student {
 
     private String name;
+    private int id;
     private int age;
     private double height;
 
@@ -8,8 +9,9 @@ public class Student {
 
     }
 
-    public Student(String name, int age, double height) {
+    public Student(String name, int id,int age, double height) {
         this.name = name;
+        this.id = id;
         this.age = age;
         this.height = height;
     }
@@ -38,12 +40,22 @@ public class Student {
         this.height = height;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         if(this.getName().length() < 6){
             return "(name : " +
                     this.getName() +
-                    ") \t\t\t\t\t(age: " +
+                    ") \t\t\t\t\t(id: " +
+                    this.getId() +
+                    ") \t(age: " +
                     this.getAge() +
                     ") \t\t\t(height: " +
                     this.getHeight() +
@@ -53,7 +65,9 @@ public class Student {
         if(this.getName().length() < 10){
             return "(name : " +
                     this.getName() +
-                    ") \t\t\t\t(age: " +
+                    ") \t\t\t\t(id: " +
+                    this.getId() +
+                    ") \t(age: " +
                     this.getAge() +
                     ") \t\t\t(height: " +
                     this.getHeight() +
@@ -63,7 +77,9 @@ public class Student {
 
             return "(name : " +
                     this.getName() +
-                    ") \t\t\t(age: " +
+                    ") \t\t\t(id: " +
+                    this.getId() +
+                    ") \t(age: " +
                     this.getAge() +
                     ") \t\t\t(height: " +
                     this.getHeight() +
