@@ -1,4 +1,6 @@
 package simpleArray;
+import raw_data.Student;
+
 
 public class Main_simpleArray {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package simpleArray;
+package raw_data;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

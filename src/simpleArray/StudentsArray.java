@@ -1,4 +1,5 @@
 package simpleArray;
+import raw_data.Student;
 
 public class StudentsArray {
 
@@ -35,7 +36,7 @@ public class StudentsArray {
         if(students[position] != null){
             return students[position];
         }else{
-            System.out.printf("simpleArray.Student not found");
+            System.out.printf("raw_data.Student not found");
             return null;
         }
     }
@@ -244,7 +245,7 @@ public class StudentsArray {
 
     public Student[] sortByAge(){
         int pos;
-        Student  temp;
+        Student temp;
 
         for (int i = 0;i<elementNumber+1;i++){
             pos = i;
@@ -262,7 +263,7 @@ public class StudentsArray {
 
     public Student[] sortByHeight(){
         int pos;
-        Student  temp;
+        Student temp;
 
         for (int i = 0;i<elementNumber+1;i++){
             pos = i;
@@ -281,7 +282,7 @@ public class StudentsArray {
 
     @Override
     public String toString() {
-        String out = "\n\t\t\t\t\t\tsimpleArray.Student Array\n\n";
+        String out = "\n\t\t\t\t\t\traw_data.Student Array\n\n";
         for(int i = 0;i<students.length;i++){
             if(students[i] != null){
 
