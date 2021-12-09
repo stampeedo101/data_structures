@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package simpleArray;
 
 public class StudentsArray {
 
@@ -35,7 +35,7 @@ public class StudentsArray {
         if(students[position] != null){
             return students[position];
         }else{
-            System.out.printf("Student not found");
+            System.out.printf("simpleArray.Student not found");
             return null;
         }
     }
@@ -281,7 +281,7 @@ public class StudentsArray {
 
     @Override
     public String toString() {
-        String out = "\n\t\t\t\t\t\tStudent Array\n\n";
+        String out = "\n\t\t\t\t\t\tsimpleArray.Student Array\n\n";
         for(int i = 0;i<students.length;i++){
             if(students[i] != null){
 

@@ -1,6 +1,6 @@
-import java.util.Arrays;
+package simpleArray;
 
-public class Main_root {
+public class Main_simpleArray {
     public static void main(String[] args) {
 //        System.out.printf("test");
 
