@@ -1,6 +1,9 @@
 package doubly_linkedList;
 import raw_data.Student;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Main_doublyLinkedList {
     public static void main(String[] args) {
 
@@ -47,8 +50,30 @@ public class Main_doublyLinkedList {
 
         System.out.printf("\nlast: " + myDoublyLinkedList.peekLast().getName());
 
-        myDoublyLinkedList.clear();
+//        myDoublyLinkedList.clear();
 
         System.out.printf("\nempty: " + myDoublyLinkedList.isEmpty());
-    }
+
+        Iterator<Student> studentIterator = myDoublyLinkedList.iterator();
+
+        while (studentIterator.hasNext()){
+            System.out.printf("\niterator: " + studentIterator.next());
+        }
+
+
+        System.out.printf("\nsize " + myDoublyLinkedList.size());
+
+        try {
+            myDoublyLinkedList.addAtIndex(1,dominique);
+            Iterator<Student> studentIterator2 = myDoublyLinkedList.iterator();
+
+            while (studentIterator2.hasNext()){
+                System.out.printf("\niterator: " + studentIterator2.next());
+            }
+            System.out.printf("\nsize " + myDoublyLinkedList.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+}
 }

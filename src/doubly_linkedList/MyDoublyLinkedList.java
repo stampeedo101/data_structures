@@ -9,10 +9,10 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
       /*
     METHODS TO IMPLEMENT
 
-    addElement()
+    V addElement()
     addElementPosition()
-    addElementBegin()
-    addElementEnd()
+    V addElementBegin()
+    V addElementEnd()
 
     getElementByPosition()
     getPositionByElement()
@@ -21,7 +21,7 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
     deleteElementByElement()
     deleteBegin()
     deleteEnd()
-    clear()
+    V clear()
 
     sortNames()
     sortAges()
@@ -68,7 +68,9 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
     public boolean isEmpty(){
         if(size == 0){
             return true;
-        }else return false;
+        }else {
+            return false;
+        }
     }
 
     public int size(){
@@ -107,14 +109,37 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
            //next always null too
            //head and tail are the same
 
-           System.out.printf("\nentrou\n");
            head = tail = new Node<T>(element,null,null);
 
        }else {
+           //save reference to next of old tail
            tail.next = new Node<T>(element,tail,null);
+           //change old tail for new one
            tail = tail.next;
        }
+
        size++;
+    }
+
+    public void addAtIndex(int index, T element) throws Exception{
+        if(index<0 || index>size){
+            throw new Exception("Illegal index");
+        }else if(index == 0){
+            addFirst(element);
+        }else if(index == size){
+            addLast(element);
+        }
+            Node<T> temporary = head;
+            for(int i = 0; i < index - 1; i++){
+                System.out.printf("\npreso\n");
+                temporary = temporary.next;
+            }
+
+            Node<T> newNode = new Node<>(element,temporary,temporary.next);
+            temporary.next.previous = newNode;
+            temporary.next = newNode;
+            size++;
+
     }
 
     public T peekFirst(){
@@ -129,7 +154,29 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new java.util.Iterator<T>(){
+
+            private Node<T> traverser = head;
+
+            @Override
+            public boolean hasNext() {
+                return (traverser != null);
+            }
+
+            @Override
+            public T next() {
+                T data = traverser.data;
+                traverser = traverser.next;
+                return data;
+            }
+
+            @Override
+            public void remove() {
+                Iterator.super.remove();
+                throw new UnsupportedOperationException();
+            }
+
+        };
     }
 
     @Override
