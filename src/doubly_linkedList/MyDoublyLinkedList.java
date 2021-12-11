@@ -55,12 +55,18 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         Node<T> traverser = head;
 
         while (traverser != null){
+            //copy reference to next of traverser
             Node<T> next = traverser.next;
+
+            //null all data to traverser
             traverser.previous = traverser.next = null;
             traverser.data = null;
+
+            //put next to traverser
             traverser = next;
         }
 
+        //if head or tail have something
         head = tail = traverser = null;
         size = 0;
     }
@@ -89,11 +95,11 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
             //next always null too
             //head and tail are the same
 
-            head = tail = new Node<T>(element,null,null);
+            head = tail = new Node<>(element,null,null);
 
         }else {
             //save reference to previous of old head
-            head.previous = new Node<T>(element,null,head);
+            head.previous = new Node<>(element,null,head);
             //change old head for new one
             head = head.previous;
         }
@@ -109,11 +115,11 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
            //next always null too
            //head and tail are the same
 
-           head = tail = new Node<T>(element,null,null);
+           head = tail = new Node<>(element,null,null);
 
        }else {
            //save reference to next of old tail
-           tail.next = new Node<T>(element,tail,null);
+           tail.next = new Node<>(element,tail,null);
            //change old tail for new one
            tail = tail.next;
        }
@@ -131,12 +137,15 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         }
             Node<T> temporary = head;
             for(int i = 0; i < index - 1; i++){
-                System.out.printf("\npreso\n");
+                //you need to run from head to (index-1) and make a temporary copy
+                //temporary need reach previous for new element
                 temporary = temporary.next;
             }
 
             Node<T> newNode = new Node<>(element,temporary,temporary.next);
+            //change the previous reference of posterior
             temporary.next.previous = newNode;
+            //change the next reference of anterior
             temporary.next = newNode;
             size++;
 

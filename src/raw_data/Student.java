@@ -14,6 +14,13 @@ public class Student {
         this.id = generateId();
     }
 
+    public Student(String name){
+        this.name = name;
+        this.age = generateAge();
+        this.height =generateHeight();
+        this.id = generateId();
+    }
+
     public Student(String name, int age, double height) {
         this.name = name;
         this.age = age;
@@ -57,43 +64,51 @@ public class Student {
         return ThreadLocalRandom.current().nextInt(0,1000);
     }
 
+    private int generateAge(){
+        return ThreadLocalRandom.current().nextInt(17,27);
+    }
+
+    private double generateHeight(){
+        return ThreadLocalRandom.current().nextDouble(1.60,2.2);
+    }
+
     @Override
     public String toString() {
         if(this.getName().length() < 6){
-            return "(name : " +
-                    this.getName() +
-                    ") \t\t\t\t\t(id: " +
-                    this.getId() +
-                    ") \t(age: " +
-                    this.getAge() +
-                    ") \t\t\t(height: " +
-                    this.getHeight() +
-                    ")"
-                    ;
-        }
-        if(this.getName().length() < 10){
-            return "(name : " +
+            return String.format(
+                    "(name : " +
                     this.getName() +
                     ") \t\t\t\t(id: " +
                     this.getId() +
                     ") \t(age: " +
                     this.getAge() +
-                    ") \t\t\t(height: " +
-                    this.getHeight() +
-                    ")"
-                    ;
-        }else {
-
-            return "(name : " +
+                    ") \t\t\t(height: %,2.2f)",
+                    this.getHeight()
+            );
+        }
+        if(this.getName().length() < 10){
+            return String.format(
+                    "(name : " +
                     this.getName() +
                     ") \t\t\t(id: " +
                     this.getId() +
                     ") \t(age: " +
                     this.getAge() +
-                    ") \t\t\t(height: " +
-                    this.getHeight() +
-                    ")"
-                    ;
+                    ") \t\t\t(height: %,2.2f)",
+                    this.getHeight()
+            );
+
+        }else {
+            return String.format(
+                    "(name : " +
+                    this.getName() +
+                    ") \t\t(id: " +
+                    this.getId() +
+                    ") \t(age: " +
+                    this.getAge() +
+                    ") \t\t\t(height: %,2.2f)",
+                    this.getHeight()
+            );
 
         }
     }
