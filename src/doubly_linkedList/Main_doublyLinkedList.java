@@ -146,15 +146,13 @@ public class Main_doublyLinkedList {
         System.out.printf("\ntest for extractFirst\n" );
         try {
 
-            for (int i =0; i<30;i++){
+            for (int i =0; i<20;i++){
 
                 System.out.printf("\nExtracted: " + myDoublyLinkedList.extractLast().getName());
             }
 
 
-            System.out.printf("\nelement deleted: " + myDoublyLinkedList.removeElement(felicia));
-
-            myDoublyLinkedList.removeElement(dietrich);
+            System.out.printf("\n" + felicia.getName()+" deleted: " + myDoublyLinkedList.removeElement(felicia));
 
             Iterator<Student> studentIterator2 = myDoublyLinkedList.iterator();
 
@@ -168,6 +166,8 @@ public class Main_doublyLinkedList {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.out.printf("\nIndexOf: " + delphine.getName() + " " + myDoublyLinkedList.indexOf(delphine));
 
     }
 }

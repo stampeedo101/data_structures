@@ -226,19 +226,19 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         return extractNode(traverser);
     }
 
-    public boolean removeElement(Object obj){
+    public boolean removeElement(Object object){
 
         Node<T> traverser = head;
 
-        if(obj != null){
+        if(object != null){
             for (traverser = head;traverser != null;traverser = traverser.next){
-                if(obj.equals(traverser.data)){
+                if(object.equals(traverser.data)){
                     extractNode(traverser);
                     return true;
                 }
             }
         //if it has a null in a list
-        }else if (obj == null){
+        }else if (object == null){
             for (traverser = head; traverser != null;traverser = traverser.next){
                 if(traverser.data == null){
                     extractNode(traverser);
@@ -250,6 +250,28 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
     }
 
 
+    public int indexOf(Object object){
+        int index = 0;
+        Node<T> traverser = head;
+
+        if(object != null){
+            for (;traverser != null;traverser = traverser.next, index++){
+                if(object.equals(traverser.data)){
+                    extractNode(traverser);
+                    return index;
+                }
+            }
+            //if it has a null in a list
+        }else if (object == null){
+            for (; traverser != null;traverser = traverser.next, index++){
+                if(traverser.data == null){
+                    extractNode(traverser);
+                    return index;
+                }
+            }
+        }
+        return -1;
+    }
 
     @Override
     public Iterator<T> iterator() {
