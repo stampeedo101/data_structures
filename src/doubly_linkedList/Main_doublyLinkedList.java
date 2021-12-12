@@ -142,5 +142,26 @@ public class Main_doublyLinkedList {
             e.printStackTrace();
         }
 
-}
+
+        System.out.printf("\ntest for extractFirst\n" );
+        try {
+
+            for (int i =0; i<30;i++){
+
+                System.out.printf("\nExtracted: " + myDoublyLinkedList.extractLast().getName());
+            }
+            Iterator<Student> studentIterator2 = myDoublyLinkedList.iterator();
+
+
+            i=0;
+            while (studentIterator2.hasNext()){
+                System.out.printf("\niterator: [" + i +"]\t" +studentIterator2.next());
+                i++;
+            }
+            System.out.printf("\nsize " + myDoublyLinkedList.size() + "\n\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

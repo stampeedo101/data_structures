@@ -161,6 +161,50 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         return tail.data;
     }
 
+    public T extractFirst(){
+        if(isEmpty()) throw new RuntimeException("Empty List");
+        T data = head.data;
+        head = head.next;
+        size--;
+
+        if(isEmpty()){
+            tail = null;
+        }else head.previous = null;
+
+        return data;
+    }
+
+    public T extractLast(){
+        if(isEmpty()) throw new RuntimeException("Empty List");
+
+        T data = tail.data;
+        tail = tail.previous;
+        size--;
+
+        if(isEmpty()){
+            head = null;
+        }else tail.next = null;
+
+        return data;
+    }
+
+    private T extractNode(Node<T> node){
+
+        if(node.previous == null){
+            return extractFirst();
+        }else if(node.next == null){
+            return extractLast();
+        }else{
+            //change references for adjacent nodes
+            node.next.previous = node.previous;
+            node.previous.next = node.next;
+        }
+        T data = node.data;
+        size--;
+        return data;
+    }
+
+
     @Override
     public Iterator<T> iterator() {
         return new java.util.Iterator<T>(){
