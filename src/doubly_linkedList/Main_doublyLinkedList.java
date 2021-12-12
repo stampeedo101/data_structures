@@ -167,7 +167,11 @@ public class Main_doublyLinkedList {
             e.printStackTrace();
         }
 
-        System.out.printf("\nIndexOf: " + delphine.getName() + " " + myDoublyLinkedList.indexOf(delphine));
+        System.out.printf("\nIndexOf: " +delphine.getName() + " " + myDoublyLinkedList.indexOf(delphine));
+
+        System.out.printf("\nthere is " + juliet.getName() + " " + myDoublyLinkedList.contains(juliet));
+
+        System.out.printf("\nthere is " + charlotte.getName() + " " + myDoublyLinkedList.contains(charlotte));
 
     }
 }

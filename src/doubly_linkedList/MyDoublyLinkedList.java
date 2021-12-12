@@ -273,6 +273,10 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         return -1;
     }
 
+    public boolean contains(Object object){
+        return (indexOf(object) != -1);
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new java.util.Iterator<T>(){
