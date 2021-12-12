@@ -151,8 +151,10 @@ public class Main_doublyLinkedList {
                 System.out.printf("\nExtracted: " + myDoublyLinkedList.extractLast().getName());
             }
 
-            myDoublyLinkedList.extractAtIndex(1);
 
+            System.out.printf("\nelement deleted: " + myDoublyLinkedList.removeElement(felicia));
+
+            myDoublyLinkedList.removeElement(dietrich);
 
             Iterator<Student> studentIterator2 = myDoublyLinkedList.iterator();
 

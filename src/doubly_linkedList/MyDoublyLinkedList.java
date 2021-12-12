@@ -226,6 +226,31 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         return extractNode(traverser);
     }
 
+    public boolean removeElement(Object obj){
+
+        Node<T> traverser = head;
+
+        if(obj != null){
+            for (traverser = head;traverser != null;traverser = traverser.next){
+                if(obj.equals(traverser.data)){
+                    extractNode(traverser);
+                    return true;
+                }
+            }
+        //if it has a null in a list
+        }else if (obj == null){
+            for (traverser = head; traverser != null;traverser = traverser.next){
+                if(traverser.data == null){
+                    extractNode(traverser);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
     @Override
     public Iterator<T> iterator() {
         return new java.util.Iterator<T>(){
