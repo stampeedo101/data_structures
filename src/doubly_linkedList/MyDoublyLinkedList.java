@@ -204,6 +204,27 @@ public class MyDoublyLinkedList<T> implements Iterable<T> {
         return data;
     }
 
+    public T extractAtIndex(int index){
+
+        if (index < 0 || index >= size){
+            throw new IllegalArgumentException();
+        }
+
+        int i;
+        Node<T> traverser;
+
+        if(index < size/2){
+            for ( i = 0, traverser = head; i != index ; i++ ){
+                traverser = traverser.next;
+            }
+        }else {
+            for (i = size -1, traverser = tail; i != index; i--){
+                traverser = traverser.previous;
+            }
+        }
+
+        return extractNode(traverser);
+    }
 
     @Override
     public Iterator<T> iterator() {

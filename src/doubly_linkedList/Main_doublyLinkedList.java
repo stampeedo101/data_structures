@@ -150,6 +150,10 @@ public class Main_doublyLinkedList {
 
                 System.out.printf("\nExtracted: " + myDoublyLinkedList.extractLast().getName());
             }
+
+            myDoublyLinkedList.extractAtIndex(1);
+
+
             Iterator<Student> studentIterator2 = myDoublyLinkedList.iterator();
 
 
